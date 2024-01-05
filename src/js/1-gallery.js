@@ -70,15 +70,15 @@ const images = [
 const createMarkup = ({ preview, original, description }) =>
   `
     <li class="gallery-item">
-  <a class="gallery-link" href=${original}>
-    <img class="gallery-image" src=${preview} alt=${description} />
+  <a class="gallery-link" href="${original}">
+    <img class="gallery-image" src="${preview}" alt="${description}" />
   </a>
 </li>
 `;
 const markup = images.map(createMarkup).join('');
 
 const imgGallery = document.querySelector('.gallery');
-imgGallery.insertAdjacentHTML('afterbegin', markup);
+imgGallery.insertAdjacentHTML('beforeend', markup);
 
 function onImageClick(event) {
   event.preventDefault();
@@ -99,5 +99,3 @@ let gallery = new SimpleLightbox('.gallery a', {
   captionsData: 'alt',
   captionDelay: 250,
 });
-
-imgGallery.addEventListener('click', onImageClick);
