@@ -80,21 +80,6 @@ const markup = images.map(createMarkup).join('');
 const imgGallery = document.querySelector('.gallery');
 imgGallery.insertAdjacentHTML('beforeend', markup);
 
-function onImageClick(event) {
-  event.preventDefault();
-
-  if (event.target.nodeName !== 'IMG') {
-    return;
-  }
-
-  const clickedImgSrc = event.target.getAttribute('src');
-  const clickedImg = images.find(image => image.preview === clickedImageSrc);
-
-  if (clickedImg) {
-    gallery.open(images.indexOf(clickedImg));
-  }
-}
-
 let gallery = new SimpleLightbox('.gallery a', {
   captionsData: 'alt',
   captionDelay: 250,
