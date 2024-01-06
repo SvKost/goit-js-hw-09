@@ -5,8 +5,8 @@ form.addEventListener('input', saveFormDataToStorage);
 
 function saveFormDataToStorage() {
   const formData = {
-    email: form.querySelector('input[name="email"]').value.trim(),
-    textarea: form.querySelector('textarea[name="message"]').value.trim(),
+    email: form.querySelector('[name="email"]').value.trim(),
+    message: form.querySelector('[name="message"]').value.trim(),
   };
 
   localStorage.setItem(STORAGE_KEY, JSON.stringify(formData));
@@ -32,8 +32,7 @@ form.addEventListener('submit', event => {
   event.preventDefault();
 
   const formData = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
-  console.log(formData.email);
-  console.log(formData.textarea);
+  console.log(formData);
 
   localStorage.removeItem(STORAGE_KEY);
   form.reset();
